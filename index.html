@@ -61,15 +61,11 @@
               </div>
             </div>
           </form>
-          <h1 class="city" id="selected-city"></h1>
-          <ul>
-            <li id="day-of-the-week"></li>
-            <li id="temperature-details"></li>
-          </ul>
+
           <div class="row">
             <div class="col-6">
+              <h1 class="city data" id="selected-city"></h1>
               <div class="clearfix">
-                <!--Weather Icon</i>-->
                 <div class="float-left">
                   <img
                     src=""
@@ -85,18 +81,27 @@
                   >
                 </div>
               </div>
+              <ul>
+                <li id="day-of-the-week" class="data"></li>
+                <li id="temperature-details" class="data"></li>
+                <li id="city-humidity" class="data">Humidity:</li>
+                <li id="city-wind" class="data">Wind:</li>
+              </ul>
             </div>
             <div class="col-6">
-              <ul>
-                <li id="city-humidity">Humidity:</li>
-                <li id="city-wind">Wind:</li>
-              </ul>
+              <div class="weather-forecast">
+                <div class="row">
+                  <div class="col-4">Thu</div>
+                  <div class="col-4">Fri</div>
+                  <div class="col-4">Sat</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <small
           ><a
-            href="https://github.com/JoyAvalos/vanilla-weather-app"
+            href="https://github.com/JoyAvalos/vanilla-weather-app-forecast"
             target="_blank"
             >Open-source code
           </a>

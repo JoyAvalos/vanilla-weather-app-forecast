@@ -18,16 +18,17 @@ li {
   font-size: 32px;
   color: white;
   font-weight: bolder;
-  line-height: 28px;
-  padding: 10px 0px;
+  line-height: 30px;
+  padding: 0px;
+  margin: 20px 0px 0px 0px;
 }
 .weather-app {
   border: 1px solid #dadde1;
-  padding: 20px;
+  padding: 40px;
   margin: 30px auto;
   border-radius: 10px;
   max-width: 800px;
-  background-image: url("/media/chalkboard.jpg");
+  background-image: url("file:///Users/joy/Documents/GitHub/vanilla-weather-app-forecast/media/chalkboardBackground.jpg");
 }
 .weather-app-wrapper {
   max-width: 800px;
@@ -77,4 +78,8 @@ li {
 }
 .units .active:hover {
   text-decoration: none;
+}
+
+.data {
+  text-align: center;
 }
