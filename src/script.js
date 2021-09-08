@@ -71,6 +71,7 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconelement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 // Function used for Current button
 function getPosition(event) {
@@ -109,7 +110,8 @@ function convertCelsius(event) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
   let forecastHTML = `<div class="row">`;
@@ -132,7 +134,7 @@ function displayForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
+  // console.log(forecastHTML);
   /*
                   <div class="col-4 forecast-data">Fri</div>
                   <div class="col-4 forecast-data">Sat</div>
@@ -143,6 +145,15 @@ function displayForecast() {
                 </div>`;*/
 }
 //Form search
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "9c292bb799d0e08eb6951e986e805425";
+  let unit = "metric";
+  let apiUrlmain = "https://api.openweathermap.org/data/2.5/onecall?";
+  let apiUrl = `${apiUrlmain}lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${unit}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", handleSubmit);
 //Day information
@@ -162,4 +173,3 @@ let celsius = document.querySelector("#celsius-link");
 celsius.addEventListener("click", convertCelsius);
 
 searchCity("Chicago");
-displayForecast();
