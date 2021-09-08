@@ -109,7 +109,39 @@ function convertCelsius(event) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+                  <div class="col-4">
+                    <div class="weather-forecast-day">${day}</div>
+                    <img
+                      src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
+                      alt="image-weather-forecast1"
+                      width="40"
+                    />
+                    <div class="weather-forecast-temperature">
+                      <spa class="weather-forecast-temperature-max">18°</span>
+                           <spa class="weather-forecast-temperature-min">12°</span>
+                    </div>
+                  </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+  /*
+                  <div class="col-4 forecast-data">Fri</div>
+                  <div class="col-4 forecast-data">Sat</div>
+                </div>
+                <div class="row">
+                  <div class="col-6 forecast-data">Sun</div>
+                  <div class="col-6 forecast-data">Mon</div>
+                </div>`;*/
+}
 //Form search
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", handleSubmit);
@@ -130,3 +162,4 @@ let celsius = document.querySelector("#celsius-link");
 celsius.addEventListener("click", convertCelsius);
 
 searchCity("Chicago");
+displayForecast();
