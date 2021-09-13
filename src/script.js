@@ -50,6 +50,9 @@ function searchCity(city) {
 }
 // Function used to show the data: temperature, city, weather details, humididy, wind
 function showTemperature(response) {
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+
   console.log(response);
   document.querySelector("#selected-city").innerHTML = response.data.name;
   celsiusTemperature = response.data.main.temp;
@@ -179,7 +182,7 @@ weekDay.innerHTML = formatDate(today);
 let buttonCurrent = document.querySelector("#btn-current");
 buttonCurrent.addEventListener("click", getPosition);
 //Global Temperature
-celsiusTemperature = null;
+let celsiusTemperature = null;
 //Fahrenheit link
 let fahrenheit = document.querySelector("#fahrenheit-link");
 fahrenheit.addEventListener("click", convertFahrenheit);
